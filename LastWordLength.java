@@ -34,17 +34,14 @@ There will be at least one word in s.*/
 class Solution {
     public int lengthOfLastWord(String s) {
         int len=s.length();
-        int count=1;
-        for(int i=len-1;i>=0;i--){
-            if(Character.isLetter(s.charAt(i)) && s.charAt(i-1)==' '){
-                break;
-            }
-            else if(s.charAt(i)==' '){
-                continue;
-            }
-            else{
-                ++count;
-            }
+        int count=0;
+        int i=len-1;
+        while(i>=0 && s.charAt(i)==' '){
+            i--;
+        }
+        while(i>=0 && s.charAt(i)!=' '){
+            count++;
+            i--;
         }
         return count;
     }
